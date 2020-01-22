@@ -1,0 +1,66 @@
+.myContainer {
+    height: 80px;
+    margin : 0.5%;
+    margin-top: 0;
+    background-color: lightcyan;
+    width: 99%;   
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 90px;
+    z-index: 10;
+}
+.container {
+    position: relative;
+    height: 100%;
+}
+
+a {
+    width: 70px;
+    height: 36px;
+    display: block;
+    position: relative;
+    top: 22px;
+    left: 0;
+    margin: 0 auto;
+}
+
+.right {
+    position: absolute;
+    right: 5px;
+    top: 20px;
+}
+
+.left {
+    position: absolute;
+    left: 5px;
+    top: 20px;
+}
+
+.btn {
+    margin-left: 2px; 
+}
+
+@media only screen and (max-width: 450px) {
+    .btn-outline-primary {
+        display: block;
+    }
+    .left {
+        top: 3px;
+    }
+}
+
+p {
+    display: inline-block;
+    font-size: 20px;
+    margin: 2px 0;
+}
+
+.badge {
+    font-size: 20px;
+    height: 38px;
+    text-align: center;
+    margin: 2px 0;
+    padding: 6px 12px;
+}

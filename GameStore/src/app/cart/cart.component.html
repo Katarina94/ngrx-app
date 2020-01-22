@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="">
+    <h1>Cart</h1>
+    <div class="">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>
+              {{product._id}}
+            </td>
+            <td>
+              {{product.name}}
+            </td>
+            <td>
+              {{product.description}}
+            </td>
+            <td>
+              <button
+                class="btn btn-danger"
+                (click)="onRemoveFromCart(product)"
+              >
+                Remove from Cart
+              </button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <button class="btn btn-success" (click)="onHome()">
+        Home
+      </button>
+    </div>
+  </div>
+</div>
