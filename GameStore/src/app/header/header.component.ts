@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { Subscription, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as CartActions from '../store/cart.actions';
+import * as fromApp from '../store/app.reducer';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +10,13 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  numberOfProducts = 0;
-  constructor(private cartService: CartService) {
-    this.cartService.numberOfProducts.subscribe((numberOfProducts: number) => {
-      this.numberOfProducts = numberOfProducts;
-    });
+  numberOfProducts: any;
+  constructor(private store: Store<fromApp.AppState>) {
   }
 
   ngOnInit() {
-    this.numberOfProducts = this.cartService.numOfProducts;
+    this.store.select('cart').subscribe((cart) => {
+      this.numberOfProducts = cart.products.length;
+    });
   }
 }

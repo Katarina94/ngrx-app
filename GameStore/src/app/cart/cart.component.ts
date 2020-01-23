@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+
+import { Product } from '../shared/product.model';
+import * as CartActions from '../store/cart.actions';
+import * as fromApp from '../store/app.reducer';
 
 @Component({
   selector: 'app-cart',
@@ -8,18 +13,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  products: Observable<{ products: Product[] }>;
+  private subscription: Subscription;
 
-  products = [];
-  forbidden = true;
-  constructor(private cartService: CartService, private router: Router) { }
+  constructor(
+    private store: Store<fromApp.AppState>,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.products = this.cartService.products;
+    this.products = this.store.select('cart');
   }
 
   onRemoveFromCart(product: any) {
-    this.cartService.removeProduct(product);
-    this.ngOnInit();
+    this.store.dispatch(new CartActions.RemoveProductFromCart(product.id));
+  }
+
+  onUpdateQuantity(product: any) {
+    this.store.dispatch(new CartActions.UpdateProductQuantity(1, product.id));
   }
 
   onHome() {

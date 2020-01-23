@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductServerService } from '../services/server/product-server.service';
+import { Product } from '../shared/product.model';
 
 @Component({
   selector: 'app-home-page',
@@ -9,18 +9,12 @@ import { ProductServerService } from '../services/server/product-server.service'
 export class HomePageComponent implements OnInit {
 
   products = [
-    {name: 'Test 1', description: 'Some Description'},
-    {name: 'Test 2', description: 'Some Description'},
+    new Product(3, 'neko ime', 'nesto', 32, 1),
+    new Product(4, 'neko drugo ime', 'nesto', 33, 1),
   ];
 
-  constructor(private productServerService: ProductServerService) { }
+  constructor() { }
 
   ngOnInit() {
-    // this.productServerService.getProducts(undefined, undefined, this.itemsPerPage, this.currentPage).subscribe((response1) => {
-    //   this.products = response1.data;
-    //   this.numberOfItems = response1.lenght;
-    // }, (error) => {
-    //   console.log(error);
-    // });
   }
 }

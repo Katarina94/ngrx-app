@@ -12,9 +12,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products">
+          <tr *ngFor="let product of (products | async).products; let i = index">
             <td>
-              {{product._id}}
+              {{product.id}}
             </td>
             <td>
               {{product.name}}
@@ -23,6 +23,12 @@
               {{product.description}}
             </td>
             <td>
+              <button
+                class="btn"
+                (click)="onUpdateQuantity(product)"
+              >
+                Update
+              </button>
               <button
                 class="btn btn-danger"
                 (click)="onRemoveFromCart(product)"
