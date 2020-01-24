@@ -4,3 +4,45 @@
 p {
     margin-left: 3px;
 }
+.card-img-top{
+    position: absolute;
+    display: block;
+    width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card-img-top-holder {
+    width: 200px;
+    height: 250px;
+    margin: auto;
+}
+
+.card-img-top-holder-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 125%;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin: 15px;
+}
+.card-text {
+    text-align: center;
+    margin: 10px;
+}
+
+.cart-price {
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+}
+.cart-btn {
+    display: inline-block;
+    float: right;
+}

@@ -8,6 +8,7 @@
             <th>ID</th>
             <th>Product</th>
             <th>Description</th>
+            <th>Price</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -23,12 +24,15 @@
               {{product.description}}
             </td>
             <td>
-              <button
-                class="btn"
-                (click)="onUpdateQuantity(product)"
-              >
-                Update
-              </button>
+              {{product.price}}
+            </td>
+            <td>
+<!--              <button-->
+<!--                class="btn"-->
+<!--                (click)="onUpdateQuantity(product)"-->
+<!--              >-->
+<!--                Update-->
+<!--              </button>-->
               <button
                 class="btn btn-danger"
                 (click)="onRemoveFromCart(product)"

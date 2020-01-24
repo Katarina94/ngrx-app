@@ -23,21 +23,27 @@ export function cartReducer(
         ...state,
         products: [...state.products, action.payload]
       };
-    case CartActions.UPDATE_PRODUCT_QUANTITY:
-      const product = state.products[action.productId - 1];
-      const updatedProduct = {
-        ...product,
-        quantity: product.quantity + action.quantity
-      };
-      const updatedProducts = [...state.products];
-      updatedProducts[action.productId - 1] = updatedProduct;
-
-      return {
-        ...state,
-        products: updatedProducts,
-        editedCartItemIndex: -1,
-        editedCartItem: null
-      };
+    // case CartActions.UPDATE_PRODUCT_QUANTITY:
+    //   // const product = state.products[action.productId];
+    //   const updatedProducts = [...state.products];
+    //   const product = state.products.filter((prod, index) => {
+    //     return prod.id === action.productId;
+    //   })
+    //     console.log(product)
+    //   const updatedProduct = {
+    //     ...product,
+    //     quantity: product[0].quantity + action.quantity
+    //   };
+    //   // const updatedProducts = [...state.products];
+    //   // console.log('updatedProducts', updatedProduct)
+    //   // updatedProducts[0] = updatedProduct;
+    //
+    //   return {
+    //     ...state,
+    //     products: updatedProducts,
+    //     editedCartItemIndex: -1,
+    //     editedCartItem: null
+    //   };
     case CartActions.REMOVE_PRODUCT_FROM_CART:
       return {
         ...state,
